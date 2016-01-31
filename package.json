@@ -1,0 +1,39 @@
+{
+  "name": "live-voting",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive --require ./test/test_helper.js",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bionikspoon/react-redux-live-voting.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "live",
+    "voting",
+    "manu",
+    "phatak"
+  ],
+  "author": "Manu Phatak <bionikspoon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bionikspoon/react-redux-live-voting/issues"
+  },
+  "homepage": "https://github.com/bionikspoon/react-redux-live-voting#readme",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "chai": "^3.5.0",
+    "chai-immutable": "^1.5.3",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "immutable": "^3.7.6"
+  }
+}
