@@ -1,5 +1,5 @@
 {
-  "name": "live-voting",
+  "name": "live-voting-server",
   "version": "0.0.1",
   "description": "Live voting react app.",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "redux",
     "live",
     "voting",
+    "server",
     "manu",
     "phatak"
   ],
@@ -37,7 +38,6 @@
   },
   "dependencies": {
     "immutable": "^3.7.6",
-    "react": "^0.14.7",
     "redux": "^3.1.7",
     "socket.io": "^1.4.5"
   }
