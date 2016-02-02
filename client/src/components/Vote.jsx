@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import PureComponent from '../lib/PureComponent.jsx';
 
 export default class Vote extends PureComponent {

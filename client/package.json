@@ -2,7 +2,7 @@
   "name": "live-voting-client",
   "version": "0.0.1",
   "description": "Live voting react app.",
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
     "test:watch": "npm run test -- --watch"
@@ -51,6 +51,7 @@
     "react-dom": "^0.14.7",
     "react-redux": "^4.1.2",
     "react-router": "^2.0.0-rc5",
-    "redux": "^3.2.0"
+    "redux": "^3.2.0",
+    "socket.io-client": "^1.4.5"
   }
 }
