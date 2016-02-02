@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import * as actionCreators from '../action_creators';
 import PureComponent from '../lib/PureComponent.jsx';
 import Winner from './Winner.jsx';
-
-const VOTE_WIDTH_PERCENT = 8;
 
 export class Results extends PureComponent {
   render() {
@@ -67,7 +66,9 @@ export class Results extends PureComponent {
 
 }
 
-export default connect(mapStateToProps)(Results);
+export default connect(mapStateToProps, actionCreators)(Results);
+
+const VOTE_WIDTH_PERCENT = 8;
 
 function mapStateToProps(state) {
   return {
