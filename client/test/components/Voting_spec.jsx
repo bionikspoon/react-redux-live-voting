@@ -1,6 +1,6 @@
 import Voting from '../../src/components/Voting.jsx';
 import React from 'react/addons';
-import {expect} from  'chai';
+import {expect} from 'chai';
 
 const {renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate} = React.addons.TestUtils;
 
@@ -16,7 +16,7 @@ describe('Voting', () => {
 
   it('invokes callback when a button is clicked', () => {
     let votedWith;
-    const vote = entry => votedWith = entry;
+    const vote = entry => {votedWith = entry};
     const voting = (
       <Voting
         pair={["Trainspotting", "28 Days Later"]}
