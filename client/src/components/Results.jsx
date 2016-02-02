@@ -1,10 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import PureComponent from '../lib/PureComponent.jsx';
 import Winner from './Winner.jsx';
 
-export const VOTE_WIDTH_PERCENT = 8;
+const VOTE_WIDTH_PERCENT = 8;
 
-export default class App extends PureComponent {
+export class Results extends PureComponent {
   render() {
     return this.props.winner ? this.renderWinner() : this.renderTally();
   }
@@ -63,4 +65,20 @@ export default class App extends PureComponent {
     return (this.getVotes(entry) * VOTE_WIDTH_PERCENT) + '%';
   }
 
+}
+
+export default connect(mapStateToProps)(Results);
+
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn([
+      'vote',
+      'pair'
+    ]),
+    tally: state.getIn([
+      'vote',
+      'tally'
+    ]),
+    winner: state.get('winner')
+  }
 }

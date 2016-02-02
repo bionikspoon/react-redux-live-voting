@@ -1,4 +1,4 @@
-import Voting from '../../src/components/Voting.jsx';
+import {Voting} from '../../src/components/Voting.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate} from 'react-addons-test-utils';
@@ -64,6 +64,7 @@ describe('Voting', () => {
 
     expect(buttons.length).to.equal(0);
 
+    //noinspection JSDeclarationsAtScopeStart
     const winner = ReactDOM.findDOMNode(component.refs.winner);
     //noinspection BadExpressionStatementJS
     expect(winner).to.be.ok;

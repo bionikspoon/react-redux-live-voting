@@ -1,9 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote';
 import PureComponent from '../lib/PureComponent.jsx';
 
-export default class Voting extends PureComponent {
+export class Voting extends PureComponent {
   render() {
     return this.props.winner ? this.renderWinner() : this.renderVoting();
   }
@@ -17,4 +18,16 @@ export default class Voting extends PureComponent {
     return <Vote {...this.props} />;
   }
 
+}
+
+export default connect(mapStateToProps)(Voting);
+
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn([
+      'vote',
+      'pair'
+    ]),
+    winner: state.get('winner')
+  };
 }

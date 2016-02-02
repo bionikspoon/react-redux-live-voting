@@ -3,10 +3,27 @@ import './main.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router, {Route} from 'react-router';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
+import reducer from './reducer';
 import Voting from './components/Voting';
 import App from './components/App';
 import Results from './components/Results';
+
+const store = createStore(reducer);
+store.dispatch({
+  type: 'SET_STATE',
+  state: {
+    vote: {
+      pair: [
+        'Sunshine',
+        '28 Days Later'
+      ],
+      tally: {Sunshine: 2}
+    }
+  }
+});
 
 const routes = (
   <Route component={App}>
@@ -19,6 +36,11 @@ const routes = (
 
   </Route>
 );
-const router = (<Router>{routes}</Router>);
+const router = (
+  <Provider store={store}>
+
+    <Router>{routes}</Router>
+
+  </Provider>);
 
 ReactDOM.render(router, document.getElementById('app'));

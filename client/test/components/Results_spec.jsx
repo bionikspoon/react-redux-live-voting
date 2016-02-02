@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {renderIntoDocument, scryRenderedDOMComponentsWithClass, Simulate} from 'react-addons-test-utils';
 import {expect} from 'chai';
 import {List, Map} from 'immutable';
-import Results from '../../src/components/Results.jsx';
+import {Results} from '../../src/components/Results.jsx';
 
 describe('Results', () => {
   it('renders entries with vote counts or zero', () => {
