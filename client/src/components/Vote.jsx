@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import PureComponent from '../lib/PureComponent.jsx';
 
-export default class Vote extends React.Component {
+export default class Vote extends PureComponent {
   render() {
     const pair = this.getPair().map(entry => {
       const hadVotedForEntry = this.hasVotedFor(entry);
