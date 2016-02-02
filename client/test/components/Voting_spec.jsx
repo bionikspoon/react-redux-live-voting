@@ -1,8 +1,11 @@
 import Voting from '../../src/components/Voting.jsx';
-import React from 'react/addons';
+import React from 'react';
+import {
+  renderIntoDocument,
+  scryRenderedDOMComponentsWithTag,
+  Simulate
+} from 'react-addons-test-utils';
 import {expect} from 'chai';
-
-const {renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate} = React.addons.TestUtils;
 
 describe('Voting', () => {
   it('renders a pair of buttons', () => {
@@ -15,7 +18,7 @@ describe('Voting', () => {
   });
 
   it('invokes callback when a button is clicked', () => {
-    let votedWith;
+    let votedWith = null;
     const vote = entry => {votedWith = entry};
     const voting = (
       <Voting
@@ -29,6 +32,20 @@ describe('Voting', () => {
 
     expect(votedWith).to.equal('Trainspotting');
 
+  });
+
+  it('disables buttons when user has voted', () => {
+    const voting = (
+      <Voting
+        pair={["Trainspotting", "28 Days Later"]}
+        hasVoted="Trainspotting" />
+    );
+    const component = renderIntoDocument(voting);
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+
+    expect(buttons.length).to.equal(2);
+    expect(buttons[0].hasAttribute('disabled')).to.equal(true);
+    expect(buttons[1].hasAttribute('disabled')).to.equal(true);
   });
 
 });
